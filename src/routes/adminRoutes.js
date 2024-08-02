@@ -8,8 +8,8 @@ const {
 const { jwtVerify } = require("../middleware/jwtVerify");
 
 router.post("/signin", adminSignIn);
-router.get("/vendors", getAllVendors);
-router.put("/vendors/:id/verify", verifyVendor);
-router.put("/vendors/:id/block",toggleBlock);
+router.get("/vendors",jwtVerify, getAllVendors);
+router.put("/vendors/:id/verify",jwtVerify, verifyVendor);
+router.put("/vendors/:id/block",jwtVerify,toggleBlock);
 
 module.exports = router;
