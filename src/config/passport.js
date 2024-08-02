@@ -25,7 +25,7 @@ const setupJwtStrategy = (passport) => {
           default:
             return done(null, false, { message: 'Invalid role' });
         }
-
+        console.log(model);
         const user = await model.findById(jwt_payload.id);
 
         if (user) {
